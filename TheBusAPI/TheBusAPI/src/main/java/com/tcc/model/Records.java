@@ -3,25 +3,23 @@ package com.tcc.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
-@Document
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Horario {
+public class Records {
 
-    private String id;
+    private String _id;
 
     private String linha;
 
-    private LocalDateTime largada;
+    private String horario_largada;
 
     private String sentido;
 
-    private boolean adaptado;
-
+    private String adaptado_deficiente;
 
 }

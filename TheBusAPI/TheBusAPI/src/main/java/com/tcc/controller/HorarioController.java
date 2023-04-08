@@ -1,28 +1,29 @@
 package com.tcc.controller;
 
-import com.tcc.model.Horario;
-import com.tcc.service.HorarioService;
+import com.tcc.model.Records;
+import com.tcc.service.RecordsService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
+@CrossOrigin(origins = "*")
 public class HorarioController {
 
-    private HorarioService horarioService;
+    private RecordsService recordsService;
 
-    public HorarioController(HorarioService horarioService) {
-        this.horarioService = horarioService;
+    public HorarioController(RecordsService recordsService) {
+        this.recordsService = recordsService;
     }
 
     @PostMapping("/horario")
-    public Horario saveHorario(@RequestBody Horario horario) {
-        return horarioService.salvarHorario(horario);
+    public Records saveHorario(@RequestBody Records horario) {
+        return recordsService.salvarHorario(horario);
     }
 
     @GetMapping("/horario")
-    public List<Horario> getHorario() {
-        return horarioService.getHorario();
+    public List<Records> getHorario() {
+        return recordsService.getHorario();
     }
 }
