@@ -26,4 +26,9 @@ public class UserController {
     public List<User> getUser() {
         return userService.getUser();
     }
+
+    @GetMapping("/user")
+    public User getUserByEmailAndPassword(@RequestParam String email, @RequestParam String password) {
+        return userService.getUserByEmailAndPassword(email, password);
+    }
 }
