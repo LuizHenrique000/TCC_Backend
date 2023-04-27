@@ -11,7 +11,7 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class HorarioController {
 
-    private RecordsService recordsService;
+    private final RecordsService recordsService;
 
     public HorarioController(RecordsService recordsService) {
         this.recordsService = recordsService;
