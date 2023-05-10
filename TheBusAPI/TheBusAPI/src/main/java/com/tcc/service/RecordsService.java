@@ -31,14 +31,14 @@ public class RecordsService {
         return recordsRepository.save(records);
     }
 
-//    public List<Records> getHorario() {
-//      Response payload = this.restTemplate.getForObject("https://dadosabertos.poa.br/api/3/action/datastore_search?resource_id=cb96a73e-e18b-4371-95c5-2cf20e359e6c&q=t12", Response.class);
-//      List<Records> records = payload.getResult().getRecords();
-//      recordsRepository.saveAll(records);
-//      return records;
-//    }
-
     public List<Records> getHorario() {
+      Response payload = this.restTemplate.getForObject("https://dadosabertos.poa.br/api/3/action/datastore_search?resource_id=cb96a73e-e18b-4371-95c5-2cf20e359e6c&q=t12", Response.class);
+      List<Records> records = payload.getResult().getRecords();
+      recordsRepository.saveAll(records);
+      return sortRecords();
+    }
+
+    private List<Records> sortRecords() {
         Query query = new Query();
         query.addCriteria(Criteria.where("sentido").is("NORTESUL"));
         query.with(Sort.by(Sort.Direction.ASC, "horario_largada"));
