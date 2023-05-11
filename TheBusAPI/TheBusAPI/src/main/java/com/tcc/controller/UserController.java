@@ -5,6 +5,7 @@ import com.tcc.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -28,7 +29,7 @@ public class UserController {
     }
 
     @GetMapping("/user")
-    public User getUserByEmailAndPassword(@RequestParam String email, @RequestParam String password) {
+    public Optional<List<User>> getUserByEmailAndPassword(@RequestParam String email, @RequestParam String password) {
         return userService.getUserByEmailAndPassword(email, password);
     }
 }
