@@ -68,9 +68,11 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+					<finalName>TheBusAPI</finalName>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+
 
 </project>
